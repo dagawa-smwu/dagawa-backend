@@ -1,45 +1,50 @@
 package com.smwu.dagawa;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import lombok.Getter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-@Entity
+@Document(collection = "laptops")
 @Getter
 public class Laptop implements Item {
 
-    @Id @GeneratedValue
-    @Column(name = "laptop_id")
+    @Id
+    @Field(value = "laptop_id, targetType = FieldType.OBJECT_ID")
     private Long id;
 
-    @Column(name = "brand")
+    @Field("brand")
     private String brand;
 
-    @Column(name = "name")
+    @Field("name")
     private String name;
 
-    @Column(name = "cpu")
+    @Field("cpu")
     private String cpu;
 
-    @Column(name = "size_inch")
+    @Field("size_inch")
     private float size;
 
-    @Column(name = "ram_gb")
+    @Field("ram_gb")
     private int ram;
 
-    @Column(name = "ssd_gb")
+    @Field("ssd_gb")
     private int ssd;
 
-    @Column(name = "weight_kg")
+    @Field("weight_kg")
     private float weight;
 
+    @Field("price")
     private String price;
 
+    @Field("gpu")
     private String gpu;
 
+    @Field("url")
     private String url;
+
+    @Field("imge_url")
+    private String imgUrl;
 
 
 
